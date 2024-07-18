@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Adventures</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Python Adventures</h1>
+    <div class="level-info">
+        <p>{{ level_info.description }}</p>
+        <p><strong>Hint:</strong> {{ level_info.hint }}</p>
+    </div>
+    <form action="{{ url_for('submit_code') }}" method="post">
+        <textarea name="code" rows="10" cols="50"></textarea><br>
+        <button type="submit">Submit Code</button>
+    </form>
+    {% if result %}
+    <div class="result">
+        <p>{{ result }}</p>
+    </div>
+    {% endif %}
+</body>
+</html>
